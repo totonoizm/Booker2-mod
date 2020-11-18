@@ -12,6 +12,7 @@
                 <td><%= link_to attachment_image_tag(@book.user, :profile_image, size: "40x40", format: 'jpeg',fallback: "no_image.jpg"),user_path(@book.user.id) %><br><%= link_to @book.user.name, user_path(@book.user.id) %></td><!-- !!user.showへリンクしたい！！bookmodelに紐付けたuserのprofile_imageを表示します-->
                 <td><%= link_to @book.title, book_path(@book.id) %>  <!--戻すところを考える！rake routes でurlがわかる--></td>
                 <td><%= @book.body %></td>
+                <td><%= @book.book_comments.count %>件コメント</td>
                 <% if @book.user == current_user %>
                   <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %></td><!--@モデル名で現在参照しているデータにとぶ-->
                   <td><%= link_to "Destroy", book_path(@book.id), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "Are you sure?" %></td>

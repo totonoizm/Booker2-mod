@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'books/top' => 'books#top'
   devise_for :users
   root 'books#top'
-  resources :books
+  resources :books do
+    resources :book_comments, only: [:create, :destroy]
+  end
     resources :users, only: [:index, :show, :edit, :destroy, :update  ]
 
 

@@ -22,6 +22,16 @@
        <th>introduction</th>
        <th><%= current_user.introduction %></th>
      </tr>
+     <tr>
+       <th>フォロー</th>
+       <th><%= current_user.follower.count %></th>
+     </tr>
+     <tr>
+       <th>フォロワー</th>
+       <th><%= current_user.followed.count %></th>
+     </tr>
+
+     </tr>
    </table>
    <p><%= link_to " ", edit_user_path(current_user), class: "btn btn-default btn-block glyphicon glyphicon-wrench" %></p>
   <h2 class="jquery">New book</h2>

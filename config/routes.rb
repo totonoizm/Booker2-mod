@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get '/users/sign_out' => 'devise/sessions#destroy'
   get 'home/about' => 'books#about'
   get 'books/top' => 'books#top'
-  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
-  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+  post 'follow/:id' => 'relationships#create', as: 'follow' # フォローする
+  post 'unfollow/:id' => 'relationships#destroy', as: 'unfollow' # フォロー外す
   devise_for :users
   root 'books#top'
   resources :books do

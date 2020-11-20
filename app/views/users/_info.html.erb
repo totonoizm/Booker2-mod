@@ -29,7 +29,12 @@
        <th>フォロワー</th>
        <th><%= user.followed.count %></th>
      </tr>
-
+     <tr>
+      <% if current_user.following?(user) %>
+        <th><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %></th>
+      <% else %>
+        <th><%= link_to 'フォローする', follow_path(user.id), method: :POST %></th>
+      <% end %>
      </tr>
    </table>
   <% if @book.user == current_user %>

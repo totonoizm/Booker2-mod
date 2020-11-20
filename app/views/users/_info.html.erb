@@ -1,4 +1,4 @@
- <!--サイドバー部分 aplication.htmlでrender使って呼び出し-->
+ <!--サイドバー部分 usershowの時に表示するやつ-->
     <% if @book.errors.any? %>
         <div class="alert">
             <ul>
@@ -10,30 +10,29 @@
         </div>
     <% end %>
  <h2>User info</h2>
- <% if user_signed_in? %>
-    <%= attachment_image_tag current_user, :profile_image, size: "100x100", format: 'jpeg',fallback: "no_image.jpg" %><!-- !!user.showへリンクしたい！！bookmodelに紐付けたuserのprofile_imageを表示します-->
+    <%= attachment_image_tag user, :profile_image, size: "100x100", format: 'jpeg',fallback: "no_image.jpg" %><!-- !!user.showへリンクしたい！！bookmodelに紐付けたuserのprofile_imageを表示します-->
     <table class="table">
      <tr></tr>
      <tr>
        <th>name</th>
-       <th><%= current_user.name %></th>
+       <th><%= user.name %></th>
      </tr>
      <tr>
        <th>introduction</th>
-       <th><%= current_user.introduction %></th>
+       <th><%= user.introduction %></th>
      </tr>
      <tr>
        <th>フォロー</th>
-       <th><%= current_user.follower.count %></th>
+       <th><%= user.follower.count %></th>
      </tr>
      <tr>
        <th>フォロワー</th>
-       <th><%= current_user.followed.count %></th>
+       <th><%= user.followed.count %></th>
      </tr>
 
      </tr>
    </table>
-   <p><%= link_to " ", edit_user_path(current_user), class: "btn btn-default btn-block glyphicon glyphicon-wrench" %></p>
+  <% if @book.user == current_user %>
   <h2 class="jquery">New book</h2>
       <div>
         <%= form_with model:book, local:true do |f| %>
@@ -50,5 +49,6 @@
           </div>
         <% end %>
       </div>
- <% end %>
+  <% end %>
+
  <!--通常はログインユーザー情報,編集機能あり-->

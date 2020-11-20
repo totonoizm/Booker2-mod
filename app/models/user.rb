@@ -27,6 +27,7 @@ def following?(user)
   following_user.include?(user)
 end
 
+
   attachment :profile_image
 
   validates :name, presence: true, length: {minimum: 2, maximum: 20}

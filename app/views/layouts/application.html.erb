@@ -31,13 +31,17 @@
         </nav>
       </div>
     </header>
-    <% if user_signed_in? %>
+
     <div>
-      <%= form_with model:search, local:true do |f| %>
-      <%= f.text_field :search, size: "25%" %>
-      <%= f.submit 'search', class: "btn btn-primary btn-block" %>
+
+      <%= form_with url: books_path, method: :get, local: true do |f| %>
+        <%= f.text_field :search %>
+        <%= select_tag 'search[model]', options_for_select({"User" => "user", "Book" => "book"}) %>
+        <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+
+        <%= f.submit 'Search', name: nil %>
       <% end %>
-    <% end %>
+
 
 
 

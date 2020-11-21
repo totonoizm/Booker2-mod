@@ -31,19 +31,23 @@
         </nav>
       </div>
     </header>
+    <% if user_signed_in? %>
+    <div>
+      <%= form_with model:search, local:true do |f| %>
+      <%= f.text_field :search, size: "25%" %>
+      <%= f.submit 'search', class: "btn btn-primary btn-block" %>
+      <% end %>
+    <% end %>
+
+
+
+    </div>
      <div class="update">
       <%=   flash[:notice]  %>
       <%=   flash[:update]  %>
     </div>
-    <div id="container">
-      <div id="theTarget">
-        <div class="test1"></div>
-        <div class="test2"></div>
-        <div class="test3"></div>
-        <div class="test4"></div>
-        <div class="test5"></div>
-      </div>
-    </div>
+
+
     <%= yield %>
     <footer>
       <div class='row'>

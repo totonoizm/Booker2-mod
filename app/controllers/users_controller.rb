@@ -12,6 +12,18 @@ class UsersController < ApplicationController
     @books = @user.books.page(params[:page]).reverse_order
   end
 
+  def following
+      @user  = User.find(params[:id])
+      @users = @user.following_user
+      render 'show_follow'
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.follower_user
+    render 'show_follower'
+  end
+
   def edit
     @user = User.find(params[:id])
     if @user == current_user

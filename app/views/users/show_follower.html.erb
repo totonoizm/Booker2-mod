@@ -10,15 +10,16 @@
             <th></th>
             <th></th>
           </tr>
-          <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+          <% @user.follower_user.each do |user| %>
           <tr>
             <td><%= link_to attachment_image_tag(user, :profile_image, size: "40x40", format: 'jpeg',fallback: "no_image.jpg"),user_path(user.id) %></td>
             <td><%= user.name %></td>
-            <td><%= user.email %></td>
             <% if current_user.following?(user) %>
-              <th><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %></td>
+              <td><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: "btn btn-primary" %></td>
+            <% elsif current_user %>
+            <td></td>
             <% else %>
-              <td><%= link_to 'フォローする', follow_path(user.id), method: :POST %></td>
+              <td><%= link_to 'フォローする', follow_path(user.id), method: :POST, class: "btn btn-success" %></td>
             <% end %>
             <td><%= link_to "show", user_path(user) %></td>
           <% end %>

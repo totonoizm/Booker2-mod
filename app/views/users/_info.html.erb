@@ -31,9 +31,9 @@
      </tr>
      <tr>
       <% if current_user.following?(user) %>
-        <th><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %></th>
+        <th><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: "btn btn-primary" %></th>
       <% else %>
-        <th><%= link_to 'フォローする', follow_path(user.id), method: :POST %></th>
+        <th><%= link_to 'フォローする', follow_path(user.id), method: :POST, class: "btn btn-success" %></th>
       <% end %>
      </tr>
    </table>

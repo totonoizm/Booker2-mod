@@ -32,6 +32,7 @@
      <tr>
       <% if current_user.following?(user) %>
         <th><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: "btn btn-primary" %></th>
+      <% elsif user == current_user %>
       <% else %>
         <th><%= link_to 'フォローする', follow_path(user.id), method: :POST, class: "btn btn-success" %></th>
       <% end %>

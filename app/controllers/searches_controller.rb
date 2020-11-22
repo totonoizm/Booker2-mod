@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
     if model == 'user'
       User.where(name:content)
     elsif model == 'book'
-      Book.where(title.content)
+      Book.where(title:content)
     end
   end
 

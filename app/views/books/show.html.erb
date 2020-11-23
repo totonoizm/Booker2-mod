@@ -15,11 +15,8 @@
                 <td><%= @book.body %></td>
                 <td><%= @book.book_comments.count %>件コメント</td>
 
-                <% if @book.favorited_by?(current_user) %>
-                <td><%= link_to @book.favorites.count, book_favorites_path(@book), method: :delete, class: "glyphicon glyphicon-heart" %></td>
-                <% else %>
-                <td><%= link_to @book.favorites.count, book_favorites_path(@book), method: :post, class: "glyphicon glyphicon-heart-empty" %></td>
-                <% end %>
+                <%= render'favorites/fav', book: @book %>
+
                 <% if @book.user == current_user %>
                   <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %></td><!--@モデル名で現在参照しているデータにとぶ-->
                   <td><%= link_to "Destroy", book_path(@book.id), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "Are you sure?" %></td>

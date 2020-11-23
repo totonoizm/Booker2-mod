@@ -57,7 +57,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = Book.new
     @book_comment = BookComment.new
-    @book_comment = @book.bookcomments.order(created_at: :desc)
+    @book_comment = @book.book_comments.order(created_at: :desc)
   end
 
   private

@@ -1,1 +1,3 @@
-$('.fav').html("<%= j(render partial: 'favorites/fav', locals: {book: @book}) %>");
+$('#fav_<%= @book.id %>').html("<%= j(render partial: 'favorites/fav', locals: {book: @book}) %>");
+
+alert('createアクション');

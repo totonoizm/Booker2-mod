@@ -13,6 +13,7 @@
             <tr>
               <td><%= attachment_image_tag user, :profile_image, size: "40x40", format: 'jpeg',fallback: "no_image.jpg" %></td><!-- !!user.showへリンクしたい！！bookmodelに紐付けたuserのprofile_imageを表示します-->
               <td><%= user.name %></td>
+              <td><%= user.postcode %></td>
               <td><%= link_to "Show", user_path(user.id) %></td><!-- !!user.showへリンクしたい！！bookmodelに紐付けたuserのprofile_imageを表示します-->
               <td><%= "フォロー数: #{user.follower.count}" %>
               <td><%= "フォロワー数: #{user.followed.count}" %></td>

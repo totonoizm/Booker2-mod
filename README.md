@@ -1,7 +1,5 @@
 # README
 
-## Bookers2
-DMMWEBCAMP4ー8演習課題提出用リポジトリです。
 
 
 This README would normally document whatever steps are necessary to get the
